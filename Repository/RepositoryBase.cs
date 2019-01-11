@@ -140,7 +140,7 @@ namespace Repository
                 {
                     entry.State = EntityState.Modified;//全字段更新
                     updatePropertyList.ForEach(c => {
-                        entry.Property(c).IsModified = false; //部分字段不更新的写法
+                        entry.Property(c).IsModified = false; //部分字段不更新的写法,没测试可能有BUG
                     });
                 }
             }

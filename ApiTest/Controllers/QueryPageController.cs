@@ -78,6 +78,15 @@ namespace ApiTest.Controllers
             }
             return await _unitOfWork.SysUserRepository.InsertAsync(inserUsers);
         }
-
+        /// <summary>
+        /// 更新数据，部分字段更新
+        /// </summary>
+        /// <param name="sysUser"></param>
+        /// <returns></returns>
+        public bool Update(SysUser sysUser)
+        {
+            //只更新实体的CreateTime和Mobile字段
+            return _unitOfWork.SysUserRepository.Update(sysUser,true,new List<string> { nameof(SysUser.CreateTime), nameof(SysUser.Mobile), });
+        }
     }
 }
